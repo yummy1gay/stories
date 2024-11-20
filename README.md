@@ -1,7 +1,7 @@
 ```python
-from stories import userbot_client
+from stories import story_client
 
-await userbot_client.start()
+await story_client.start()
 ```
 
 ```python
