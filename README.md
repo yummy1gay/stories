@@ -7,6 +7,9 @@ await story_client.start()
 ```python
 from stories import get_story
 
+peer = message.media.peer
+story_id = message.media.id
+
 story = await get_story(peer, story_id)
 ```
 
