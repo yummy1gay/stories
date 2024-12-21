@@ -6,10 +6,10 @@ api_id = ""
 api_hash = ""
 story_client = TelegramClient("story_client", api_id, api_hash)
 
-async def get_story(peer, story_id):
+async def get_story(event):
     try:
-        await story_client.get_entity(peer)
-        response = await story_client(GetStoriesByIDRequest(peer=peer, id=[story_id]))
+        await story_client.get_messages(event.chat_id, event.message.id)
+        response = await story_client(GetStoriesByIDRequest(peer=event.media.peer, id=[event.media.id]))
         if response.stories:
             return response.stories[0]
         else:
