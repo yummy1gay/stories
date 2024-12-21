@@ -1,16 +1,18 @@
 ```python
 from stories import story_client
+import asyncio
 
-await story_client.start()
+async def main():
+    await story_client.start()
+    await story_client.run_until_disconnected()
+
+asyncio.run(main())
 ```
 
 ```python
 from stories import get_story
 
-peer = message.media.peer
-story_id = message.media.id
-
-story = await get_story(peer, story_id)
+story = await get_story(event)
 ```
 
 ```python
